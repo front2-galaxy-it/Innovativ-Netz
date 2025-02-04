@@ -30,6 +30,7 @@ h2,
     @include adaptive-value("font-size", 56, 32, 1);
     line-height: 140%;
     text-transform: uppercase;
+    font-weight: 400;
 }
 
 h3,

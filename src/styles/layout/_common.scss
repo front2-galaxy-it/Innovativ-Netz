@@ -46,6 +46,7 @@
     text-align: center;
     border: 1px solid $blue;
     transition: all .3s ease 0s;
+    display: inline-block;
 }
 
 @media (hover:hover) {
@@ -95,6 +96,7 @@
             text-transform: uppercase;
             max-width: 900px;
             width: 100%;
+            font-weight: 400;
             margin: 0 auto;
         }
 
@@ -184,6 +186,10 @@
     .card_wrap {
         display: grid;
         grid-template: repeat(auto-fit, 320px) / repeat(auto-fit, minmax(320px, 1fr));
+
+        @include media ("<phone") {
+            grid-template: repeat(auto-fit, 320px) / repeat(auto-fit, minmax(280px, 1fr));
+        }
     }
 
     .card {
@@ -197,6 +203,7 @@
             &:nth-child(1),
             &:nth-child(2),
             &:nth-child(3),
+            &:nth-child(5),
             &:nth-child(6),
             &:nth-child(7),
             &:nth-child(9),
@@ -235,10 +242,6 @@
             }
         }
 
-        &:nth-child(4),
-        &:nth-child(5) {
-            border: none;
-        }
 
         &:nth-child(8) {
             position: relative;
@@ -250,7 +253,6 @@
             }
         }
 
-        // &:nth-child() {}
         svg {
             min-width: 24px;
             min-height: 24px;
@@ -264,6 +266,8 @@
     }
 
     .empty {
+        border: none;
+
         @include media ("<desktop") {
             display: none;
         }
@@ -305,6 +309,7 @@
         font-family: 'Inter';
         @include adaptive-value("font-size", 20, 16, 1);
         line-height: 140%;
+        hyphens: auto;
     }
 
     .card_title {
@@ -315,6 +320,7 @@
         text-transform: uppercase;
         max-width: 227px;
         width: 100%;
+        hyphens: auto;
     }
 }
 
@@ -339,7 +345,7 @@
     }
 
     .left_col {
-        max-width: 460px;
+        max-width: 560px;
         width: 100%;
 
         @include media ("<desktop") {
@@ -356,6 +362,7 @@
     }
 
     .benefits_img {
+        max-width: 460px;
         width: 100%;
         height: auto;
         border-radius: 12px;
@@ -460,6 +467,7 @@
         line-height: 140%;
         padding-top: 12px;
         margin-bottom: 20px;
+        hyphens: auto;
     }
 
     .item_img {
@@ -543,6 +551,7 @@
         line-height: 140%;
         letter-spacing: -0.2px;
         @include adaptive-value("margin-bottom", 40, 8, 1);
+        hyphens: auto;
     }
 
     .name {
@@ -605,6 +614,7 @@
         @include adaptive-value("font-size", 32, 20, 1);
         line-height: 140%;
         letter-spacing: -0.32px;
+        hyphens: auto;
     }
 
     .contact_info {
@@ -719,5 +729,143 @@
                 background-color: $white;
             }
         }
+    }
+}
+
+.data {
+    padding-top: 25px;
+    @include adaptive-value("padding-bottom", 110, 70, 1);
+    border-top: 1px solid $grayC6;
+    position: relative;
+
+    .artboard {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        z-index: -1;
+
+        @include media ("<tablet") {
+            display: none;
+        }
+    }
+
+    .content {
+        display: grid;
+        grid-template: 1fr / repeat(auto-fit, minmax(350px, 1fr));
+        gap: 20px;
+
+        @include media ("<phone") {
+            grid-template: 1fr / repeat(auto-fit, minmax(280px, 1fr));
+        }
+    }
+
+    .data_card {
+        border-radius: 12px;
+        border: 1px solid $grayC6;
+        padding: 25px;
+        @include adaptive-value("height", 490, 340, 1);
+        display: flex;
+        flex-direction: column;
+
+        &:first-child {
+            border: none;
+            padding: 0;
+
+            @include media ("<tablet") {
+                height: auto;
+            }
+        }
+
+        &:last-child {
+            background-image: url(../images/data_img.webp);
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            .number {
+                background-color: $white;
+                color: $blue;
+            }
+
+            .card_subtitle,
+            .card_text {
+                color: $white;
+            }
+        }
+    }
+
+    .number {
+        display: flex;
+        width: 50px;
+        height: 50px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: auto;
+        border-radius: 50%;
+        background-color: $blue;
+        color: $white;
+        font-family: Inter;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .card_subtitle {
+        color: $blue;
+        font-family: Oswald;
+        @include adaptive-value("font-size", 25, 20, 1);
+        letter-spacing: 1.04px;
+        text-transform: uppercase;
+        line-height: normal;
+        margin-bottom: 12px;
+        font-weight: 400;
+        font-style: normal;
+        hyphens: auto;
+    }
+
+    .card_text {
+        color: $gray4B;
+        font-family: Inter;
+        @include adaptive-value("font-size", 20, 16, 1);
+        line-height: 140%;
+        letter-spacing: -0.2px;
+        hyphens: auto;
+    }
+}
+
+.ready {
+    padding-bottom: 20px;
+
+    .content {
+        @include adaptive-value("padding-top", 200, 100, 1);
+        @include adaptive-value("padding-bottom", 200, 100, 1);
+        max-width: 870px;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .ready_title {
+        margin-bottom: 15px;
+    }
+
+    .ready_text {
+        color: $black;
+        font-family: Inter;
+        @include adaptive-value("font-size", 32, 20, 1);
+        line-height: 140%;
+        letter-spacing: -0.32px;
+        @include adaptive-value("margin-bottom", 50, 25, 1);
+        hyphens: auto;
+    }
+
+    .blue_btn {
+        width: 320px;
+
+        @include media ("<phone") {
+            width: 260px;
+        }
+
     }
 }

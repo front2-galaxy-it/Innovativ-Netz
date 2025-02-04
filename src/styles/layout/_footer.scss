@@ -1,1 +1,78 @@
-#footer {}
+#footer {
+    @include adaptive-value("padding-top", 50, 30, 1);
+    @include adaptive-value("padding-bottom", 25, 20, 1);
+    background-color: $blue;
+
+    .footer_top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+        @include adaptive-value("padding-bottom", 50, 30, 1);
+
+        @include media ("<desktop") {
+            flex-direction: column
+        }
+    }
+
+    .logo {
+        @include adaptive-value("width", 145, 115, 1);
+
+        svg {
+            fill: $white
+        }
+    }
+
+    .nav-menu,
+    .social_icons_wrap,
+    .footer_bottom {
+        display: flex;
+        align-items: center;
+        @include adaptive-value("gap", 30, 20, 1);
+    }
+
+    .nav-menu{
+        @include media ("<tablet") {
+            flex-direction: column;
+        }
+    }
+
+    .menu_link {
+        color: $white;
+        font-family: Inter;
+        @include adaptive-value("font-size", 16, 14, 1);
+        letter-spacing: -0.16px;
+    }
+
+    .footer_bottom {
+        justify-content: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.20);
+        padding-top: 25px;
+    }
+
+    .docs_link {
+        color: rgba(255, 255, 255, 0.60);
+        font-family: Inter;
+        font-size: 12px;
+        transition: all .3s ease 0s;
+
+
+    }
+
+    @media (hover:hover) {
+        .docs_link {
+            &:hover {
+                color: $white;
+                transition: all .3s ease 0s;
+            }
+        }
+    }
+
+    @media (hover:none) {
+        .docs_link {
+            &:active {
+                color: $white;
+            }
+        }
+    }
+}
