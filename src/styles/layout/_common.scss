@@ -215,7 +215,8 @@ html {
         border: 1px solid $grayC6;
         overflow: hidden;
 
-        &:hover {
+        &:hover,
+        &.touch-active {
 
             &:nth-child(1),
             &:nth-child(2),
@@ -853,6 +854,18 @@ html {
 
 .ready {
     padding-bottom: 20px;
+    position: relative;
+
+    .ready_img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 1400px;
+        width: 100%;
+        z-index: -1;
+        border-radius: 12px;
+    }
 
     .content {
         @include adaptive-value("padding-top", 200, 100, 1);

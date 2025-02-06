@@ -28,3 +28,9 @@ function findHref() {
     });
   }
 }
+
+document.querySelectorAll(".card").forEach((card) => {
+  card.addEventListener("touchstart", function () {
+    this.classList.toggle("touch-active");
+  });
+});
