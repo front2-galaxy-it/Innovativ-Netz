@@ -31,6 +31,10 @@
         @include adaptive-value("gap", 30, 20, 1);
     }
 
+    .footer_bottom{
+        flex-wrap: wrap;
+    }
+
     .nav-menu{
         @include media ("<tablet") {
             flex-direction: column;

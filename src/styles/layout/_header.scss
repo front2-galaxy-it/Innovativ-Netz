@@ -146,10 +146,16 @@
             font-size: 24px;
             text-transform: uppercase;
             color: $gray;
+            transition: all .3s ease 0s;
         }
+    }
 
-        &.menu_link_active {
-            color: $blue;
+    @media (hover:hover) {
+        .menu_link{
+            &:hover{
+                color: $blue;
+                transition: all .3s ease 0s;
+            }
         }
     }
 
