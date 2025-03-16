@@ -215,33 +215,6 @@ html {
         border: 1px solid $grayC6;
         overflow: hidden;
 
-        &:hover,
-        &.touch-active {
-
-            &:nth-child(1),
-            &:nth-child(2),
-            &:nth-child(3),
-            &:nth-child(5),
-            &:nth-child(6),
-            &:nth-child(7),
-            &:nth-child(9),
-            &:nth-child(10),
-            &:nth-child(11),
-            &:nth-child(12) {
-                .card__face--front {
-                    transform: rotateY(-180deg);
-                    transition: transform 0.6s;
-                }
-
-                .card__face--back {
-                    transform: rotateY(0deg);
-                    transition: transform 0.6s;
-                    background-color: $blue9E;
-                    border-color: $blue9E;
-                }
-            }
-        }
-
         &:nth-child(1) {
             align-items: flex-start;
 
@@ -281,7 +254,64 @@ html {
                 fill: $blue;
             }
         }
+
+        &.hover-active {
+
+            &:nth-child(1),
+            &:nth-child(2),
+            &:nth-child(3),
+            &:nth-child(5),
+            &:nth-child(6),
+            &:nth-child(7),
+            &:nth-child(9),
+            &:nth-child(10),
+            &:nth-child(11),
+            &:nth-child(12) {
+                .card__face--front {
+                    transform: rotateY(-180deg);
+                    transition: transform 0.6s;
+                }
+
+                .card__face--back {
+                    transform: rotateY(0deg);
+                    transition: transform 0.6s;
+                    background-color: $blue9E;
+                    border-color: $blue9E;
+                }
+            }
+        }
     }
+
+    @media (hover: hover) {
+        .card {
+            &:hover {
+
+                &:nth-child(1),
+                &:nth-child(2),
+                &:nth-child(3),
+                &:nth-child(5),
+                &:nth-child(6),
+                &:nth-child(7),
+                &:nth-child(9),
+                &:nth-child(10),
+                &:nth-child(11),
+                &:nth-child(12) {
+                    .card__face--front {
+                        transform: rotateY(-180deg);
+                        transition: transform 0.6s;
+                    }
+
+                    .card__face--back {
+                        transform: rotateY(0deg);
+                        transition: transform 0.6s;
+                        background-color: $blue9E;
+                        border-color: $blue9E;
+                    }
+                }
+            }
+        }
+    }
+
 
     .empty {
         border: none;
